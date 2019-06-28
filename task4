@@ -1,0 +1,47 @@
+
+
+1)
+Object storage: it packages data and metadata into objects. enables storage services that aren't possible with file storage technologies used in network-attached storage 
+Objects are stored in a flat structure or address space. Block storage involves saving data in blocks, or raw storage volumes.
+
+
+2)
+SQL databases are primarily called as Relational Databases (RDBMS); whereas NoSQL database are primarily called as non-relational or distributed database.
+
+SQL databases follow ACID properties (Atomicity, Consistency, Isolation and Durability) whereas the NoSQL database follows the Brewers CAP theorem (Consistency, Availability and Partition tolerance).
+
+SQL databases are table-based on the other hand NoSQL databases are either key-value pairs, document-based, graph databases or wide-column stores.
+
+SQL databases defines and manipulates data based structured query language. A NoSQL database has dynamic schema for unstructured data.
+
+
+3)
+SSH means "Secure Shell" It has a built-in username/password authentication system to establish a connection. It uses Port 22 to perform the negotiation or authentication process for connection. 
+
+HTTP means HyperText Transfer Protocol. HTTP is the underlying protocol used by the World Wide Web and this protocol defines how messages are formatted and transmitted.
+
+task - 3
+ 
+curl -X GET   https://akshata-final.s3.us-east-2.amazonaws.com/mysqlsampledatabase.sql   -H 'Accept: */*'   -H 'Authorization: AWS4-HMAC-SHA256 Credential=AKIAT74ZIRNXJF7MYT5N/20190628/us-east-2/s3/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=48a2c7c9eb36e247760f83c9b15df3c084ec71400dd75eab297605c29ee4fe90'   -H 'Cache-Control: no-cache'   -H 'Connection: keep-alive'   -H 'Content-Type: text/plain'   -H 'Host: akshata-final.s3.us-east-2.amazonaws.com'   -H 'Postman-Token: 25e06e63-658b-4dc6-b21b-6664344390db,13a7ecde-769a-4f0d-818b-a11e94df8156'   -H 'User-Agent: PostmanRuntime/7.15.0'   -H 'X-Amz-Content-Sha256: 8a17647a5e999e63d2f5072179fc200d69653ee7adcb0210243efc467446a7c0'   -H 'X-Amz-Date: 20190628T180659Z'   -H 'accept-encoding: gzip, deflate'   -H 'cache-control: no-cache'   -H 'content-length: 12'   -d 'Day 4 of AWS' >> mysqldump
+
+
+task - 4 
+
+
+step 1
+
+wc -l mysqldump
+
+step 2
+
+sed 's/mysql/yoursql/g' mysqldump > replaced_mysql_file.sql
+
+step 3
+
+grep 'NULL' mysqldump
+
+task - 6
+
+select c.customername, p.productname from customers c, orders o, orderdetails od, products p where c.customernumber = o.customernumber and o.ordernumber = od.ordernumber and od.productcode = p.productcode;
+
+
